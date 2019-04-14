@@ -54,8 +54,8 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-// return *[p].[t]*;
-// return RegExp(/[\w]*[p].[t][\w]*/);
+
+
    throw new Error('Not implemented');
 }
 
