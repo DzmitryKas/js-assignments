@@ -21,7 +21,8 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(value1, value2) {
+function concatenateStrings(value1, value2) {    
+    return value1 + value2;
     throw new Error('Not implemented');
 }
 
@@ -37,7 +38,8 @@ function concatenateStrings(value1, value2) {
  *   'b'     => 1
  *   ''      => 0
  */
-function getStringLength(value) {
+function getStringLength(value) {    
+    return value.length;
     throw new Error('Not implemented');
 }
 
@@ -54,7 +56,8 @@ function getStringLength(value) {
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(firstName, lastName) {
+function getStringFromTemplate(firstName, lastName) {    
+    return 'Hello, ' + firstName + ' ' + lastName + '!';
     throw new Error('Not implemented');
 }
 
@@ -69,6 +72,9 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
+   let str = value.replace(/Hello, /g, '');
+   let str1 = str.replace(/!/g, '');   
+    return str1;
     throw new Error('Not implemented');
 }
 
@@ -84,6 +90,8 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
+    let arr = value.split('');
+    return arr[0];
     throw new Error('Not implemented');
 }
 
@@ -99,6 +107,9 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
+    
+    let a = value.trim(); 
+    return a; 
     throw new Error('Not implemented');
 }
 
@@ -114,8 +125,13 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-    throw new Error('Not implemented');
-}
+    let arr = [];
+      for (let i = 0; i < count; i++){
+          arr.push(value)
+      }
+      let str = arr.join('');
+      return str;
+  }
 
 /**
  * Remove the first occurrence of string inside another string
@@ -130,8 +146,10 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    throw new Error('Not implemented');
-}
+    let exp = new RegExp(value);
+    let a =  str.replace(exp,'');   
+    return a;      
+  }
 
 /**
  * Remove the first and last angle brackets from tag string
@@ -145,6 +163,9 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
+    let a =  str.replace(/\</,'');
+    let b =  a.replace(/\>/,'');      
+    return b;      
     throw new Error('Not implemented');
 }
 
@@ -160,6 +181,7 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
+    return str.toUpperCase()
     throw new Error('Not implemented');
 }
 
@@ -174,6 +196,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
+    return str.split(';');
     throw new Error('Not implemented');
 }
 
@@ -221,6 +244,12 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
+    return str.replace(/[A-Za-z]/g, function (c) {
+        return "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".charAt(
+               "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm".indexOf(c)
+        );
+      } );
+    
     throw new Error('Not implemented');
 }
 
@@ -238,6 +267,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
+    return value ? typeof value.valueOf() == 'string' : false;
     throw new Error('Not implemented');
 }
 
